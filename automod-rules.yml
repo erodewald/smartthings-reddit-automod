@@ -42,10 +42,12 @@
 ---
 
 # Deals with a malware/spam domain
-    domain: []
+    domain:
+        # spam domains
+        - zemismart.com
     action: filter
     action_reason: spam domain {{match-1}}
-    comment: "This user should be banned, this link is malware"
+    modmail: "This user should be banned, this link is malware"
 
 ---
 
