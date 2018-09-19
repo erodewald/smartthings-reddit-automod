@@ -12,7 +12,7 @@
 ---
 
 # Domain blacklist
-    domain: []
+    domain: ["zemismart.com"]
     action: spam
 
 ---
