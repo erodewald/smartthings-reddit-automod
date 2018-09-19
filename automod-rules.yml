@@ -1,5 +1,8 @@
-# User shadowbans
-    author: []
+# User shadowbans - quietly "ban" users by auto-removing their posts without them knowing
+    author:
+      # spammers
+      - yopitch # amzn.to affiliate Twitter links to garbage
+      # trolls
     action: remove
     action_reason: "shadow ban"
 
@@ -12,7 +15,7 @@
 ---
 
 # Domain blacklist
-    domain: ["zemismart.com"]
+    domain: [ zemismart.com ]
     action: spam
 
 ---
