@@ -1,0 +1,119 @@
+# User shadowbans
+    author: []
+    action: remove
+    action_reason: "shadow ban"
+
+---
+
+# No Amazon Affiliate links
+    url+body (regex): "amazon\\.(com|co\\.uk|ca)\\S+?tag="
+    action: spam
+
+---
+
+# Domain blacklist
+    domain: []
+    action: spam
+
+---
+
+# Send an alert to modmail if anything gets 3+ reports
+    reports: 3
+    modmail: The above item has received 3+ reports, please investigate.
+
+---
+
+# Automatically remove anything that gets 5+ reports and send modmail
+    reports: 5
+    action: remove
+    modmail: The above item was automatically removed due to receiving 5+ reports. Please verify that this action was correct.
+
+---
+
+# Removes garbage image hosting sites
+    domain: [i.minus.com, photobucket.com, flickr.com]
+    action: remove
+    action_reason: Garbage host site
+    comment: "Don't use a poor quality image hosting site. Use [imgur](http://imgur.com/) instead."
+
+---
+
+# Deals with a malware/spam domain
+    domain: []
+    action: filter
+    action_reason: spam domain {{match-1}}
+    comment: "This user should be banned, this link is malware"
+
+---
+
+# Remove phone numbers and send review message
+    title+body (regex): ["\\(?(\\d{3})\\)?([ .-])(\\d{3})([ .-])(\\d{4})","(\\d{5})([ .-])(\\d{6})","\\(?(\\d{4})\\)?([ .-])(\\d{3})([ .-])(\\d{3})","\\(?(\\d{2})\\)?([ .-])(\\d{4})([ .-])(\\d{4})","\\(?(\\d{2})\\)?([ .-])(\\d{3})([ .-])(\\d{4})","\\+([\\d ]{10,15})"]
+    ~body+url (regex): "(\\[[^\\]]+?\\]\\()?(https?://|www\\.)\\S+\\)?"
+    ~body+title+url (regex): ["(800|855|866|877|888|007|911)\\W*\\d{3}\\W*\\d{4}", "\\d{3}\\W*555\\W*\\d{4}", "999-999-9999", "000-000-0000", "123-456-7890", "111-111-1111", "012-345-6789", "888-888-8888", "281\\W*330\\W*8004", "777-777-7777", "678-999-8212", "999([ .-])119([ .-])7253","0118 999 811","0118 999 881", "867 5309", "867-5309", "505\\W*503\\W*4455", "1024 2048", "256-512-1024"]
+    action: remove
+    modmail: |
+        **Links:** [Link to comment/OP]({{permalink}})
+     
+        **User:** /u/{{author}}
+     
+        **Type:** {{kind}} **matched on** {{match}}.
+     
+        **Post Title:** {{title}}
+     
+        **Body/Comment**: {{body}}
+     
+        **Message the Admins**: [click here](http://www.reddit.com/message/compose?to=%2Fr%2Freddit.com&amp;message=/u/{{author}}%20posted%20this%20comment%3A%0A%0A{{permalink}})
+     
+        **RTS**: [click here](http://www.reddit.com/r/reportthespammers/submit?title=overview%20for%20{{author}}&amp;url=http://www.reddit.com/user/{{author}})
+     
+    modmail_subject: AutoMod caught possible phone number being posted - please review!
+
+---
+
+# Approve thyself
+    author: [automoderator]
+    reports: 1
+    action: approve
+
+---
+
+# Re-approve any comment or submission that a moderator makes if it gets reported
+    author:
+        is_moderator: true
+    reports: 1
+    action: approve
+
+---
+
+# Racism / Hate speech
+    type: comment
+    title+body (regex, includes-word): ["nigger?s?", "k[iy]kes?", "beaners?", "spick?s?", "wetbacks?", "gooks?", "chinks?", "fagg?([eio]t)?(ry)?s?", "d[iy]kes?", "sluts?", "cunts?", "whores?", "trann(y|ie)s?", "shemales?", "honk(ie|y)", "pak(i|ee)", "cock[- ]?sucker", "fur[- ]fag", "muff[ -]?div(er?|ing)", "pol[el][ -]?smoke(ing|r)?", "porch ?monke?y", "white ?guild", "coolies?", "aid?s", "dindu", "nuf", "fag", "faggot", "faggy", "faggit", "cuck"]
+    action: filter
+    action_reason: Possible hate speech {{match-1}}
+
+---
+
+# shit subreddits
+    url+body: [r/thathappened, r/quityourbullshit, r/fatpeoplehate, r/dadjokes, r/theydidthemath, r/coontown, r/imgoingtohellforthis, r/cringe, r/cringepics, r/tumblr, r/tumblrinaction]
+    action: report
+    report_reason: Shitty Subreddit - {{match}}
+
+---
+
+# remove le epic troles
+    author:
+        comment_karma: "< -30"
+    action: remove
+    action_reason: probable troll
+
+---
+
+# Spam Killer 
+    type: submission
+    author: 
+        satisfy_any_threshold: false
+        account_age: "< 5"
+        combined_karma: "< 50"
+    action: remove
+    action_reason: probable spam
+
