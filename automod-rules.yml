@@ -3,6 +3,7 @@
       # spammers
       - yopitch # amzn.to affiliate Twitter links to garbage
       - boxmuay # amzn.to affiliate Twitter links
+      - Sheader00 # amzn.to affiliate Facebook links
       # trolls
     action: remove
     action_reason: "shadow ban"
