@@ -18,8 +18,8 @@
 # No Amazon Affiliate links
     url+body (regex): "amazon\\.(com|co\\.uk|ca)\\S+?tag="
     action: remove
-    action_reason: Affiliate links
-    comment: "Submitters of affiliate links receive an immediate ban. If you think this was in error, you may protest by messaging the moderators."
+    action_reason: Affiliate link
+    comment: "Amazon affiliate links are not allowed."
 
 ---
 
@@ -103,7 +103,7 @@
     type: comment
     title+body (regex, includes-word): ["nigger?s?", "k[iy]kes?", "beaners?", "spick?s?", "wetbacks?", "gooks?", "chinks?", "fagg?([eio]t)?(ry)?s?", "d[iy]kes?", "sluts?", "cunts?", "whores?", "trann(y|ie)s?", "shemales?", "honk(ie|y)", "pak(i|ee)", "cock[- ]?sucker", "fur[- ]fag", "muff[ -]?div(er?|ing)", "pol[el][ -]?smoke(ing|r)?", "porch ?monke?y", "white ?guild", "coolies?", "aid?s", "dindu", "nuf", "fag", "faggot", "faggy", "faggit", "cuck"]
     action: filter
-    action_reason: Possible hate speech {{match-1}}
+    action_reason: Possible hate speech ({{match-1}})
 
 ---
 
