@@ -2,15 +2,24 @@
     author:
       # spammers
       - yopitch # amzn.to affiliate Twitter links to garbage
+      - boxmuay # amzn.to affiliate Twitter links
       # trolls
     action: remove
     action_reason: "shadow ban"
 
 ---
 
+# No twitter.com/salesnews_ links
+    url+body (regex): "twitter.com/salesnews_"
+    action: remove 
+
+---
+
 # No Amazon Affiliate links
     url+body (regex): "amazon\\.(com|co\\.uk|ca)\\S+?tag="
-    action: spam
+    action: remove
+    action_reason: Affiliate links
+    comment: "Submitters of affiliate links receive an immediate ban. If you think this was in error, you may protest by messaging the moderators."
 
 ---
 
