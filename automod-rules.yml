@@ -4,6 +4,7 @@
       - yopitch # amzn.to affiliate Twitter links to garbage
       - boxmuay # amzn.to affiliate Twitter links
       - Sheader00 # amzn.to affiliate Facebook links
+      - Amfjaxx # newtondeal.com affiliate link spammer
       # trolls
     action: remove
     action_reason: "shadow ban"
