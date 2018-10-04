@@ -26,6 +26,14 @@
 
 ---
 
+# No social media links
+    url+body (regex): ["twitter\\.com", "t\\.co", "facebook\\.com", "fbcdn\\.net", "fb\\.com", "fb\\.me", "fbcdn-s?photos-.*?\\.akamaihd\\.net"]
+    action: remove
+    action_reason: Social media link
+    comment: "Social media links are not allowed."
+
+---
+
 # Domain blacklist
     domain: [ zemismart.com ]
     action: spam
