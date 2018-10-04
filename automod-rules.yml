@@ -113,7 +113,7 @@
 # shit subreddits
     url+body: [r/thathappened, r/quityourbullshit, r/fatpeoplehate, r/dadjokes, r/theydidthemath, r/coontown, r/imgoingtohellforthis, r/cringe, r/cringepics, r/tumblr, r/tumblrinaction]
     action: report
-    report_reason: Shitty Subreddit - {{match}}
+    report_reason: Useless Subreddit - {{match}}
 
 ---
 
