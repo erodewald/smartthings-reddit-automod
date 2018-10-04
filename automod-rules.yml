@@ -33,13 +33,13 @@
 ---
 
 # Send an alert to modmail if anything gets 3+ reports
-    reports: 3
+    reports: 1
     modmail: The above item has received 3+ reports, please investigate.
 
 ---
 
 # Automatically remove anything that gets 5+ reports and send modmail
-    reports: 5
+    reports: 3
     action: remove
     modmail: The above item was automatically removed due to receiving 5+ reports. Please verify that this action was correct.
 
