@@ -18,8 +18,8 @@
 
 ---
 
-# No Amazon Affiliate links
-    url+body (regex): "amazon\\.(com|co\\.uk|ca)\\S+?tag="
+# No amazon affiliate links
+    url+body (regex): "(amazon|amzn)\\.(com|co\\.uk|ca)\\S+?tag="
     action: remove
     action_reason: Affiliate link
     comment: "Amazon affiliate links are not allowed."
